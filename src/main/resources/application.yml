@@ -8,4 +8,3 @@ spring:
     password: password
     driver-class-name: org.postgresql.Driver
     dialect: org.hibernate.dialect.PostgreSQL95Dialect
-    initialization-mode: always

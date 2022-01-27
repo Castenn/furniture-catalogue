@@ -5,7 +5,7 @@ services:
     container_name: "furniture-catalogue-psql"
     image: postgres:14.0-alpine
     volumes:
-      - .././src/main/resources/database.sql:/docker-entrypoint-initdb.d/1-init.sql
+      - .././src/main/resources/init-database.sql:/docker-entrypoint-initdb.d/init-database.sql
     env_file:
       - .././src/main/resources/database.env
     ports:
