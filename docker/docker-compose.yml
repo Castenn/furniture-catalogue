@@ -7,6 +7,6 @@ services:
     volumes:
       - .././src/main/resources/init-database.sql:/docker-entrypoint-initdb.d/init-database.sql
     env_file:
-      - .././src/main/resources/database.env
+      - ../src/main/resources/database.env
     ports:
       - "5432:5432"

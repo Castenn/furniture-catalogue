@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS category
     id   SERIAL,
     name VARCHAR(255) NOT NULL,
     CONSTRAINT category_pkey PRIMARY KEY (id),
-    CONSTRAINT category_name_ukay UNIQUE (name)
+    CONSTRAINT category_name_ukey UNIQUE (name)
 );
 
 CREATE TABLE IF NOT EXISTS product
