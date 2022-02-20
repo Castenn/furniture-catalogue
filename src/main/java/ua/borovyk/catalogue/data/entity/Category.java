@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(of = {"name"})
 public class Category {
 
     @Id
