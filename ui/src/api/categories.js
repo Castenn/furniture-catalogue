@@ -4,8 +4,7 @@ class Categories {
 
     async getAllCategories() {
         const response = await fetch(CATEGORIES_LIST_PATH)
-        console.log(response.json())
-        return response.formData()
+        return response.json()
     }
 }
 

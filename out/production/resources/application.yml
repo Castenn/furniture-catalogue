@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/furniture_catalogue
+    username: borovyk
+    password: password
+    driver-class-name: org.postgresql.Driver
+    dialect: org.hibernate.dialect.PostgreSQL95Dialect

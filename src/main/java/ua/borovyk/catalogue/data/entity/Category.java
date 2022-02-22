@@ -1,8 +1,8 @@
 package ua.borovyk.catalogue.data.entity;
 
+import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString(of = {"name"})
+@ToString
 public class Category {
 
     @Id

@@ -7,7 +7,6 @@ import ua.borovyk.catalogue.data.entity.Category;
 import ua.borovyk.catalogue.data.repository.CategoryRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
