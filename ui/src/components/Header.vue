@@ -1,15 +1,12 @@
 <template>
-  <header class="p-2 mb-3 border-bottom">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1 mb-1">
-        <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-          <span class="fs-4">Каталог м'яких меблів</span>
-        </a>
-
-        <form class="justify-content-center w-50 me-3">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form>
-      </div>
+  <header class="mb-auto p-3">
+    <div>
+      <h3 class="float-md-start mb-0"><a href="/">Каталог м'яких меблів</a></h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link px-2" aria-current="page" href="/">Головна</a>
+        <a class="nav-link px-2" href="/about">Про сайт</a>
+        <a class="nav-link px-2" href="/signin">Увійти</a>
+      </nav>
     </div>
   </header>
 </template>
@@ -21,5 +18,20 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
+a:hover {
+  color: #546F78;
+}
+
+.nav-link {
+  color: #78726C;
+}
+
+.nav-link:hover {
+  color: #546F78;
+}
 </style>

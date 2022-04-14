@@ -1,9 +1,9 @@
-version: '2.2'
+version: '3.9'
 
 services:
   psql:
     container_name: "furniture-catalogue-psql"
-    image: postgres:14.0-alpine
+    image: postgres:latest
     volumes:
       - .././src/main/resources/init-database.sql:/docker-entrypoint-initdb.d/init-database.sql
     env_file:

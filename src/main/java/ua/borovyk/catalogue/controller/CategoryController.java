@@ -5,25 +5,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.borovyk.catalogue.data.entity.Category;
-import ua.borovyk.catalogue.service.CategoryService;
+import ua.borovyk.catalogue.data.entity.Type;
+import ua.borovyk.catalogue.service.TypeService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/type")
 public class CategoryController {
 
-    private final CategoryService categoryService;
+    private final TypeService typeService;
 
     @Autowired
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    public CategoryController(TypeService typeService) {
+        this.typeService = typeService;
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Category>> getAllCategories() {
-        var categories = categoryService.getAllCategories();
+    public ResponseEntity<List<Type>> getAllCategories() {
+        var categories = typeService.getAllTypes();
         return ResponseEntity.ok(categories);
     }
 }

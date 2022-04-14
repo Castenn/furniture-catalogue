@@ -13,12 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "product_image")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "product_image")
 public class ProductImage {
 
     @Id
@@ -29,9 +29,10 @@ public class ProductImage {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @Column(name = "image", nullable = false)
+    @Column(nullable = false)
     private byte[] image;
 
     @Column(name = "order_index", nullable = false)
     private Integer orderIndex;
+
 }

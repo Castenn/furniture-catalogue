@@ -19,6 +19,6 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        return productRepository.findAll(Sort.by("name"));
+        return productRepository.findAll();
     }
 }
