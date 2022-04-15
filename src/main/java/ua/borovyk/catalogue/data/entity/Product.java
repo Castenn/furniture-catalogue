@@ -40,10 +40,10 @@ public class Product {
     private String name;
 
     @Column(nullable = false)
-    private Integer price;
+    private String description;
 
     @Column(nullable = false)
-    private String description;
+    private Integer price;
 
     @Column(nullable = false)
     private Double height;

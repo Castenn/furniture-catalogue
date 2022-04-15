@@ -5,7 +5,7 @@
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link px-2" aria-current="page" href="/">Головна</a>
         <a class="nav-link px-2" href="/about">Про сайт</a>
-        <a class="nav-link px-2" href="/signin">Увійти</a>
+        <a class="nav-link px-2" href="/login">Увійти</a>
       </nav>
     </div>
   </header>

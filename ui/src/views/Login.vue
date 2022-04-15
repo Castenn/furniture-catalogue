@@ -1,5 +1,5 @@
 <template>
-  <main class="form-signin text-center">
+  <main class="form-login text-center">
     <form>
       <h1 class="h3 mb-3 fw-normal text-white">Вхід до адмін-панелі</h1>
 
@@ -19,15 +19,13 @@
 <script>
 
 export default {
-  name: "Signin",
+  name: "Login",
 }
 </script>
 
 <style scoped>
 main {
-  height: 100vh;
-  min-height: 100%;
-  min-width: 100%;
+  min-height: 80vh;
   display: flex;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -39,24 +37,24 @@ main {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(177, 192, 196, 0.7);
 }
 
-.form-signin input[type="email"] {
+.form-login input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-login input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.form-signin .form-floating:focus-within {
+.form-login .form-floating:focus-within {
   z-index: 2;
 }
 
 form {
-  margin: auto;
+  margin: 7% auto;
   padding: 15px;
   min-width: 330px;
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +16,9 @@ import javax.persistence.Table;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Setter
+@Getter
+@ToString
 @Entity
 @Table(name = "product_image")
 public class ProductImage {
@@ -25,14 +27,20 @@ public class ProductImage {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    @Column(nullable = false)
+    private String path;
 
     @Column(nullable = false)
-    private byte[] image;
+    private String name;
+
+    @Column(nullable = false)
+    private String extension;
 
     @Column(name = "order_index", nullable = false)
     private Integer orderIndex;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
 }

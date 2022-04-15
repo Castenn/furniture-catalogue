@@ -17,8 +17,7 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.addFilterBefore(corsFilter(), SessionManagementFilter.class)
-                .exceptionHandling();
+    protected void configure(HttpSecurity http) {
+        http.addFilterBefore(corsFilter(), SessionManagementFilter.class);
     }
 }

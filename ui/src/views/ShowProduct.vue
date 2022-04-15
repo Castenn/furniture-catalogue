@@ -1,7 +1,4 @@
 <template>
-  <div class="main-container d-flex h-100 text-center">
-    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
-      <header-view/>
       <main class="product-main">
         <div class="product-container">
           <div class="product_content">
@@ -40,20 +37,11 @@
           </div>
         </div>
       </main>
-      <footer-view/>
-    </div>
-  </div>
 </template>
 
 <script>
-import Header from "./Header.vue";
-import Footer from "./Footer.vue";
 
 export default {
-  components: {
-    'header-view': Header,
-    'footer-view': Footer
-  },
   name: "ShowProduct"
 }
 </script>

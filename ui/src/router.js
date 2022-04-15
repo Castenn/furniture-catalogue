@@ -1,11 +1,11 @@
 import {createRouter, createWebHistory} from "vue-router";
-import Main from "./components/Main.vue";
-import NotFound from "./components/NotFound.vue";
-import Signin from "./components/Signin.vue";
-import About from "./components/About.vue";
-import ShowProduct from "./components/ShowProduct.vue";
-import AddProduct from "./components/AddProduct.vue";
-import EditProduct from "./components/EditProduct.vue";
+import Main from "./views/Main.vue";
+import NotFound from "./views/NotFound.vue";
+import Login from "./views/Login.vue";
+import About from "./views/About.vue";
+import ShowProduct from "./views/ShowProduct.vue";
+import AddProduct from "./views/AddProduct.vue";
+import EditProduct from "./views/EditProduct.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,9 +31,9 @@ const router = createRouter({
       component: EditProduct
     },
     {
-      path: "/signin",
-      name: "signin",
-      component: Signin
+      path: "/login",
+      name: "login",
+      component: Login
     },
     {
       path: "/about",

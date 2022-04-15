@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-2 my-4">
+  <footer class="py-2 my-3">
     <div>
       <span class="text-muted">© 2022 Oleksandr Borovyk</span>
     </div>

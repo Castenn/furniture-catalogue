@@ -5,10 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ua.borovyk.catalogue.data.entity.Type;
+import ua.borovyk.catalogue.dto.TypeDto;
 import ua.borovyk.catalogue.service.TypeService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/type")
@@ -22,8 +23,10 @@ public class CategoryController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Type>> getAllCategories() {
-        var categories = typeService.getAllTypes();
+    public ResponseEntity<List<TypeDto>> getAllCategories() {
+        var categories = typeService.getAllTypes().stream()
+                .map(TypeDto::fromType)
+                .collect(Collectors.toList());
         return ResponseEntity.ok(categories);
     }
 }
