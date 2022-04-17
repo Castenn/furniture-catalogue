@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS product
     price       INT          NOT NULL,
     height      REAL         NOT NULL,
     width       REAL         NOT NULL,
-    deep        REAL         NOT NULL,
+    depth       REAL         NOT NULL,
     type_id     BIGINT       NOT NULL,
     CONSTRAINT product_pkey PRIMARY KEY (id),
     CONSTRAINT product_article_ukey UNIQUE (article),
@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS product
 CREATE TABLE IF NOT EXISTS product_image
 (
     id          SERIAL,
-    path        TEXT        NOT NULL,
-    name        UUID        NOT NULL DEFAULT GEN_RANDOM_UUID(),
-    extension   VARCHAR(25) NOT NULL,
-    order_index INT         NOT NULL DEFAULT 0,
-    product_id  BIGINT      NOT NULL,
+    path        TEXT         NOT NULL,
+    name        VARCHAR(255) NOT NULL,
+    extension   VARCHAR(25)  NOT NULL,
+    order_index INT          NOT NULL DEFAULT 0,
+    product_id  BIGINT       NOT NULL,
     CONSTRAINT product_image_pkey PRIMARY KEY (id),
     CONSTRAINT product_image_product_fkey FOREIGN KEY (product_id) REFERENCES product (id)
 );

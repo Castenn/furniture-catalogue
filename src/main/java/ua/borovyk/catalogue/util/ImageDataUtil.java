@@ -1,36 +1,35 @@
 package ua.borovyk.catalogue.util;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Objects;
-import java.util.UUID;
 
 public class ImageDataUtil {
 
-    public static final String PRODUCT_IMAGE_PATH = "./src/main/resources/public/img/product";
-
-    public static byte[] readProductImage(String name, String extension) throws IOException {
-        return Files.readAllBytes(getProductImagePath(name, extension));
+    public static final String PRODUCT_IMAGE_PATH = "./src/main/ui/public/img/product";
+    public static void saveProductImage(String name, String extension, byte[] content) {
+        try {
+            saveProductImageFile(name, extension, content);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static String saveProductImage(MultipartFile image) throws IOException {
-        var name = UUID.fromString(image.getName());
-        var content = image.getBytes();
-        var originalFilename = image.getOriginalFilename();
-        Objects.requireNonNull(originalFilename);
-        var extension = originalFilename.substring(originalFilename.lastIndexOf('.') + 1);
+    public static void deleteProductImage(String name, String extension) {
+        try {
+            Files.delete(getProductImagePath(name, extension));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-        var imageFile = getProductImagePath(name.toString(), extension).toFile();
+    private static void saveProductImageFile(String name, String extension, byte[] content) throws IOException {
+        var imageFile = getProductImagePath(name, extension).toFile();
         if (imageFile.exists()) {
             imageFile.delete();
         }
         imageFile.createNewFile();
         Files.write(imageFile.toPath(), content);
-
-        return name.toString();
     }
 
     private static Path getProductImagePath(String name, String extension) {

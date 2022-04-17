@@ -12,15 +12,15 @@ import ua.borovyk.catalogue.data.entity.Type;
 @Setter
 public class TypeDto {
 
+    private Long id;
+
+    private String name;
+
     public static TypeDto fromType(Type type) {
         var typeDto = new TypeDto();
         typeDto.setId(type.getId());
         typeDto.setName(type.getName());
         return typeDto;
     }
-
-    private Long id;
-
-    private String name;
 
 }

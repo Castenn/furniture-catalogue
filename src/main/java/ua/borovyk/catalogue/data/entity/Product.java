@@ -9,6 +9,7 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -30,7 +31,7 @@ import javax.persistence.UniqueConstraint;
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -52,7 +53,7 @@ public class Product {
     private Double width;
 
     @Column(nullable = false)
-    private Double deep;
+    private Double depth;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "type_id", nullable = false)
