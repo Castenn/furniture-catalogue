@@ -55,6 +55,9 @@ export default {
     }
   },
   created() {
+    if (!localStorage.getItem('isAuthorized')) {
+      this.$router.push('/login');
+    }
     this.fetchTypes();
   },
   methods: {

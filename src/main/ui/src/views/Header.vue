@@ -5,15 +5,38 @@
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link px-2" aria-current="page" href="/">Головна</a>
         <a class="nav-link px-2" href="/about">Про сайт</a>
-        <a class="nav-link px-2" href="/login">Увійти</a>
+        <a class="nav-link px-2" href="#" @click="clickLoginLogout()" v-if="isAuthorized">Вийти</a>
+        <a class="nav-link px-2" href="#" @click="clickLoginLogout()" v-else>Увійти</a>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
+
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      isAuthorized: false
+    }
+  },
+  created() {
+    this.isAuthorized = localStorage.getItem('isAuthorized') === 'true';
+  },
+  methods: {
+    unAuthorize() {
+      localStorage.removeItem('isAuthorized');
+      this.$router.push('/');
+    },
+    clickLoginLogout() {
+      if (this.isAuthorized) {
+        this.unAuthorize();
+      } else {
+        this.$router.push('/login');
+      }
+    },
+  }
 }
 </script>
 

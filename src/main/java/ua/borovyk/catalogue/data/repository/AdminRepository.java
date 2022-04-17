@@ -6,4 +6,7 @@ import ua.borovyk.catalogue.data.entity.Admin;
 
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Long> {
+
+    boolean existsAdminByLoginAndPassword(String login, String password);
+
 }

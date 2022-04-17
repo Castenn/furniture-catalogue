@@ -29,7 +29,7 @@
 
     <div class="products">
       <div class="container">
-        <div class="add-product">
+        <div class="add-product" v-show="isAuthorized">
           <button id="add-button"><a href="/product/add">Додати позицію</a></button>
         </div>
         <div class="product-items">
@@ -78,9 +78,14 @@ export default {
       sortField: 'name',
     }
   },
-  async created() {
+  created() {
     this.fetchTypes();
     this.fetchProducts();
+  },
+  computed: {
+    isAuthorized() {
+      return localStorage.getItem('isAuthorized') === 'true';
+    }
   },
   methods: {
     fetchTypes() {

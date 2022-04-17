@@ -11,7 +11,7 @@
             <p id="price">{{ this.product.price }} грн</p>
             <p id="article">Артикул: {{ this.product.article }}</p>
             <div class="edit">
-              <button id="edit-button" @click="redirectToEdit()">
+              <button id="edit-button" @click="redirectToEdit()" v-show="isAuthorized">
                 <a :href="'/product/edit/' + this.product.id">Редагувати позицію</a>
               </button>
             </div>
@@ -54,6 +54,11 @@ export default {
   },
   created() {
     this.initProduct(this.id);
+  },
+  computed: {
+    isAuthorized() {
+      return localStorage.getItem('isAuthorized') === 'true';
+    }
   },
   methods: {
     initProduct(id) {

@@ -4,22 +4,57 @@
       <h1 class="h3 mb-3 fw-normal text-white">Вхід до адмін-панелі</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput"
+               placeholder="name@example.com" v-model="admin.login">
         <label for="floatingInput">Логін</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPassword"
+               placeholder="Password" v-model="admin.password" @keyup.enter="login()">
         <label for="floatingPassword">Пароль</label>
       </div>
-      <button class="w-100 btn btn-lg btn-dark" type="submit">Увійти</button>
+      <button class="w-100 btn btn-lg btn-dark" type="button" @click="login()">Увійти</button>
     </form>
   </main>
 </template>
 
 <script>
 
+import {authorizationApi} from "../api/authorization";
+
 export default {
   name: "Login",
+  data () {
+    return {
+      admin: {
+        login: null,
+        password: null,
+      }
+    }
+  },
+  created() {
+    if (localStorage.getItem('isAuthorized')) {
+      this.$router.push('/');
+    }
+  },
+  methods: {
+    login () {
+      authorizationApi.getInstance().getAuthorization(this.admin.login, this.admin.password)
+        .then(response => {
+          console.log(response);
+          if (response.status === 200) {
+            localStorage.setItem('isAuthorized', 'true');
+            this.$router.push('/');
+            window.location.reload();
+          } else {
+            alert('Невірний логін або пароль');
+          }
+        })
+        .catch(error => {
+          alert('Невірний логін або пароль');
+        });
+    }
+  }
 }
 </script>
 
