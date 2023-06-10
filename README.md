@@ -3,6 +3,7 @@
 ## College coursework on the topic 'furniture catalogue'
 
 Technologies:
+
 Server side:
 - Java 17
 - Spring Boot
